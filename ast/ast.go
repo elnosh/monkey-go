@@ -43,6 +43,7 @@ func (p *Program) String() string {
 	return out.String()
 }
 
+// let statements
 type LetStatement struct {
 	Token token.Token
 	Name  *Identifier
@@ -67,6 +68,7 @@ func (ls *LetStatement) String() string {
 	return out.String()
 }
 
+// return statement
 type ReturnStatement struct {
 	Token       token.Token
 	ReturnValue Expression
@@ -88,6 +90,7 @@ func (rs *ReturnStatement) String() string {
 	return out.String()
 }
 
+// expressions statement
 type ExpressionStatement struct {
 	Token      token.Token
 	Expression Expression
@@ -102,6 +105,7 @@ func (es *ExpressionStatement) String() string {
 	return ""
 }
 
+// identifiers
 type Identifier struct {
 	Token token.Token
 	Value string
@@ -113,6 +117,17 @@ func (i *Identifier) String() string {
 	return i.Value
 }
 
+// Booleans
+type Boolean struct {
+	Token token.Token
+	Value bool
+}
+
+func (b *Boolean) expressionNode()      {}
+func (b *Boolean) TokenLiteral() string { return b.Token.Literal }
+func (b *Boolean) String() string       { return b.Token.Literal }
+
+// integers
 type IntegerLiteral struct {
 	Token token.Token
 	Value int64
@@ -122,6 +137,7 @@ func (il *IntegerLiteral) expressionNode()      {}
 func (il *IntegerLiteral) TokenLiteral() string { return il.Token.Literal }
 func (il *IntegerLiteral) String() string       { return il.Token.Literal }
 
+// prefix
 type PrefixExpression struct {
 	Token    token.Token
 	Operator string
@@ -141,6 +157,7 @@ func (pe *PrefixExpression) String() string {
 	return out.String()
 }
 
+// infix
 type InfixExpression struct {
 	Token    token.Token
 	Left     Expression
