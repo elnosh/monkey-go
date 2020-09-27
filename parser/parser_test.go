@@ -9,10 +9,10 @@ import (
 
 func TestLetStatements(t *testing.T) {
 
-	tests := []struct{
-		input string
+	tests := []struct {
+		input              string
 		expectedIdentifier string
-		expectedValue interface{}
+		expectedValue      interface{}
 	}{
 		{"let x = 5;", "x", 5},
 		{"let y = 10;", "y", 10},
@@ -71,8 +71,8 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 }
 
 func TestReturnStatements(t *testing.T) {
-	tests := []struct{
-		input string
+	tests := []struct {
+		input         string
 		expectedValue interface{}
 	}{
 		{"return 5;", 5},
@@ -751,7 +751,6 @@ func testInfixExpression(t *testing.T, exp ast.Expression, left interface{},
 
 	return true
 }
-
 
 func testIdentifier(t *testing.T, exp ast.Expression, value string) bool {
 	ident, ok := exp.(*ast.Identifier)
