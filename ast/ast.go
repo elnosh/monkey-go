@@ -311,11 +311,11 @@ func (al *ArrayLiteral) String() string {
 // index expressions e.g. myArray[1]
 type IndexExpression struct {
 	Token token.Token
-	Left  Expression	// object being accessed left[index]
+	Left  Expression // object being accessed left[index]
 	Index Expression
 }
 
-func (ie *IndexExpression) expressionNode() {}
+func (ie *IndexExpression) expressionNode()      {}
 func (ie *IndexExpression) TokenLiteral() string { return ie.Token.Literal }
 func (ie *IndexExpression) String() string {
 	var out bytes.Buffer
