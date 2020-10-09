@@ -156,7 +156,7 @@ func (s *String) HashKey() HashKey {
 }
 
 type HashPair struct {
-	Key Object
+	Key   Object
 	Value Object
 }
 
@@ -180,6 +180,3 @@ func (h *Hash) Inspect() string {
 
 	return out.String()
 }
-
-
-
